@@ -66,5 +66,20 @@ const resolvers = {
     },
   },
 };
+Book: {
+  // Resolver for the description field of the Book type
+  description: (parent) => {
+    // Check if the parent object (Book) has a description field
+    if (parent.description) {
+      // If description is not null, return it
+      return parent.description;
+    } else {
+      // If description is null, provide a default description or return an empty string
+      return "No description available";
+      // Alternatively, you can return an empty string:
+      // return '';
+    }
+  }
+};
 
 module.exports = resolvers;
